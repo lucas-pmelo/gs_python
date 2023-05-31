@@ -130,34 +130,34 @@ def buscar_doacao_alimento(id_agricultor: int) -> Doacao_Alimento:
 def buscar_todos_agricultores() -> list:
     arquivo_agricultor = open(NOMES_ARQUIVOS[0], "r")
     conteudo = json.load(arquivo_agricultor)
-    # print(conteudo["agricultores"])
     return conteudo["agricultores"]
 
 
 def buscar_todos_investidores() -> list:
     arquivo_investidor = open(NOMES_ARQUIVOS[3], "r")
     conteudo = json.load(arquivo_investidor)
-    # print(conteudo["investidores"])
     return conteudo["investidores"]
 
 
-def atualiza_agricultor(dict) -> None:
+def buscar_todas_doacoes() -> list:
+    arquivo_doacao = open(NOMES_ARQUIVOS[2], "r")
+    conteudo = json.load(arquivo_doacao)
+    return conteudo["doacoes"]
+
+
+def atualiza_agricultor(agricultor_dict):
     agricultores = buscar_todos_agricultores()
 
     for agricultor in agricultores:
-        if agricultor["id"] == dict["id"]:
-            for atributo in dict:
-                if atributo != "fazenda":
-                    agricultor[atributo] = dict[atributo]
-                else:
-                    for atributo in dict["fazenda"]:
-                        agricultor["fazenda"][atributo] = dict["fazenda"][atributo]
+        if agricultor["id"] == agricultor_dict["id"]:
+            if "fazenda" in agricultor_dict:
+                fazenda_atualizada = agricultor_dict.pop("fazenda")
+                agricultor["fazenda"].update(fazenda_atualizada)
+            agricultor.update(agricultor_dict)
             break
 
-    arquivo_agricultor = open(NOMES_ARQUIVOS[0], "w")
-    arquivo_agricultor.write(json.dumps({"agricultores": agricultores}))
-
-    arquivo_agricultor.close()
+    with open(NOMES_ARQUIVOS[0], "w") as arquivo_agricultor:
+        arquivo_agricultor.write(json.dumps({"agricultores": agricultores}))
 
 
 inicializar()

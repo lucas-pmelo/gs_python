@@ -5,17 +5,21 @@ from db import *
 
 def cadastrar_agricultor(fazenda: Fazenda) -> Agricultor:
     nome = input("Digite o nome do agricultor: ")
-    cnpj = get_int("Digite o CNPJ do agricultor: ")
+    # cnpj = get_int("Digite o CNPJ do agricultor: ")
+    cnpj = None
 
-    # if not validar_cnpj(cnpj):
-    #     print("\nCNPJ inválido, por favor digite um cnpj de 14 digitos\n")
-    #     return False
+    while True:
+        cnpj = get_int("Digite o CNPJ do agricultor: ")
 
-    # if cnpj_existente(cnpj, buscar_todos_agricultores()):
-    #     print("\nCNPJ já cadastrado\n")
-    #     return False
+        if cnpj_existente(cnpj, buscar_todos_agricultores()):
+            print("\nCNPJ já cadastrado\n")
+            continue
 
-    # FAZER O AGRICULTOR DIGITAR CPF NOVAMENTE AO INVES DE SAIR
+        if not validar_cnpj(cnpj):
+            print("\nCNPJ inválido, por favor digite um cnpj de 14 digitos\n")
+            continue
+
+        break
 
     telefone = get_int("Digite o telefone do agricultor: ")
     email = input("Digite o email do agricultor: ")
@@ -52,15 +56,21 @@ def cadastrar_fazenda() -> Fazenda:
 
 def cadastrar_investidor() -> Investidor:
     nome_empresa = input("Digite o nome da empresa do investidor: ")
-    cnpj = get_int("Digite o CNPJ do investidor: ")
+    # cnpj = get_int("Digite o CNPJ do investidor: ")
+    cnpj = None
 
-    # if not validar_cnpj(cnpj):
-    #     print("\nCNPJ inválido, por favor digite um cnpj de 14 digitos\n")
-    #     return False
+    while True:
+        cnpj = get_int("Digite o CNPJ do investidor: ")
 
-    # if cnpj_existente(cnpj, buscar_todos_investidores()):
-    #     print("\nCNPJ já cadastrado\n")
-    #     return False
+        if cnpj_existente(cnpj, buscar_todos_investidores()):
+            print("\nCNPJ já cadastrado\n")
+            continue
+
+        if not validar_cnpj(cnpj):
+            print("\nCNPJ inválido, por favor digite um cnpj de 14 digitos\n")
+            continue
+
+        break
 
     nome_representante = input(
         "Digite o nome do representante do investidor: ")
@@ -95,43 +105,3 @@ def cadastrar_doacao_alimento(id_agricultor, quantidade, codigo_remessa) -> Doac
         codigo_remessa,
     )
     escrever_doacao_alimento(doacao_alimento)
-
-
-def mostrar_agricultores(agricultores):
-    if agricultores == []:
-        print("Não há agricultores cadastrados")
-        return
-
-    for agricultor in agricultores:
-        print("Nome: ", agricultor.nome)
-        print("CNPJ: ", agricultor.cnpj)
-        print("Telefone: ", agricultor.telefone)
-        print("Email: ", agricultor.email)
-        print("Fazenda: ", agricultor.fazenda)
-        print("\n")
-
-
-def mostrar_investidores(investidores):
-    if investidores == []:
-        print("Não há investidores cadastrados")
-        return
-
-    for investidor in investidores:
-        print("Nome da empresa: ", investidor.nome_empresa)
-        print("CNPJ: ", investidor.cnpj)
-        print("Nome do representante: ", investidor.nome_representante)
-        print("Telefone do representante: ", investidor.telefone_representante)
-        print("CEP: ", investidor.cep)
-        print("\n")
-
-
-def mostrar_doacoes(doacoes):
-    if doacoes == []:
-        print("Não há doações cadastradas")
-        return
-
-    for doacao in doacoes:
-        print("Responsável: ", doacao.responsavel)
-        print("Valor: ", doacao.valor)
-        print("Nota fiscal: ", doacao.nota_fiscal)
-        print("\n")

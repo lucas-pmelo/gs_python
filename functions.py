@@ -1,5 +1,12 @@
+from db import *
+
+BARRA = "\n--------------------------------------------------"
+
+
 def sair():
-    print("Obrigado por usar o Projeto Global Solution")
+    print(BARRA)
+    print("\nObrigado por usar o Projeto Global Solution")
+    print(BARRA)
     exit()
 
 
@@ -24,27 +31,28 @@ def get_float(message):
 
 
 def menu_principal():
-    print("1 - Logar como agricultor")
+    print("\n1 - Logar como agricultor")
     print("2 - Logar como investidor")
     print("3 - Cadastrar agricultor")
     print("4 - Cadastrar investidor")
     print("5 - Sair")
-    opcao = get_int("Digite a opção desejada: ")
+    opcao = get_int("\nDigite a opção desejada: ")
     return opcao
 
 
 def menu_agricultor():
-    print("1 - Quantidade de fundos disponíveis")
+    print("\n1 - Quantidade de fundos disponíveis")
     print("2 - Registro de produção")
     print("3 - Sair")
-    opcao = get_int("Digite a opção desejada: ")
+    opcao = get_int("\nDigite a opção desejada: ")
     return opcao
 
 
 def menu_investidor():
-    print("1 - Cadastrar doação")
-    print("2 - Sair")
-    opcao = get_int("Digite a opção desejada: ")
+    print("\n1 - Cadastrar doação")
+    print("2 - Ver doações feitas")
+    print("3 - Sair")
+    opcao = get_int("\nDigite a opção desejada: ")
     return opcao
 
 
@@ -56,10 +64,8 @@ def cnpj_existente(cnpj, agricultores):
 
 
 def validar_cnpj(cnpj):
-    if len(str(cnpj)) != 14:
-        return False
-    return True
-# se sobrar tempo, melhorar essa função
+    if len(str(cnpj)) == 14:
+        return True
 
 
 def validar_renda(renda):

@@ -1,3 +1,1 @@
-{
-  "agricultores": []
-}
+{"agricultores": [{"id": 1, "nome": "Lucas", "cnpj": 1, "telefone": 52165, "email": "lucas@gmail", "fazenda": {"nome": "Fazenda Feliz", "area": 215, "cep": 42, "renda": 450000.0, "valor_necessario": 0}}]}
