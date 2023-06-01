@@ -32,7 +32,6 @@ def main():
                 opcao_ver_fundos_disponiveis()
             elif opcao == 2:
                 opcao_registrar_producao()
-
             elif opcao == 3:
                 sair()
             else:
@@ -80,7 +79,7 @@ def login_investidor():
             logado = "investidor"
             print(BARRA)
             print(
-                f"\nOlá {investidor['nome_representante']}, você foi logado com sucesso\n")
+                f"\nOlá {investidor['nome_representante']}, você foi logado(a) com sucesso\n")
         else:
             print("\nCNPJ não cadastrado\n")
 
@@ -102,7 +101,7 @@ def opcao_cadastrar_agricultor():
     logado = "agricultor"
     print(BARRA)
     print(
-        f"\nBem vindo {agricultor['nome']}, você foi cadastrado com sucesso e já está logado\n")
+        f"\nBem vindo {agricultor['nome']}, você foi cadastrado(a) com sucesso e já está logado\n")
 
 
 def opcao_cadastrar_investidor():
@@ -125,22 +124,26 @@ def opcao_registrar_producao():
 
     print(BARRA)
     print(
-        f"\nVocê doou 10% de tudo que produziu!! Doação de {kilos_doados}kg registrada com sucesso\n")
+        f"\nVocê doou 10% de tudo que produziu!! Doação de {kilos_doados}kg registrada com sucesso")
     print(BARRA)
 
 
 def opcao_cadastrar_doacao():
-    print("\nAgricultores que precisam de doações: \n")
+    print("\nAgricultores que precisam de doações: ")
+    print(BARRA)
+    encontrou = False
 
     for agricultor in buscar_todos_agricultores():
         if agricultor["fazenda"]["valor_necessario"] != 0:
             print(
-                f'> ID: {agricultor["id"]}\nNome: {agricultor["nome"]}\nValor necessário: {agricultor["fazenda"]["valor_necessario"]}\n')
-        elif agricultor["fazenda"]["valor_necessario"] == 0:
-            print(BARRA)
-            print("\nNão há agricultores que precisam de doação")
-            print(BARRA)
-            return
+                f'\n> ID: {agricultor["id"]}\nNome: {agricultor["nome"]}\nValor necessário: {agricultor["fazenda"]["valor_necessario"]}')
+            encontrou = True
+
+    if not encontrou:
+        print(BARRA)
+        print("\nNão há agricultores que precisam de doação")
+        print(BARRA)
+        return
 
     print(BARRA)
     id_agricultor = get_int("Digite o ID do agricultor que deseja doar: ")
@@ -154,15 +157,17 @@ def opcao_cadastrar_doacao():
         {"id": id_agricultor, "fazenda": {"valor_necessario": 0}})
 
     print(BARRA)
-    print(f"\nDoação de R${valor_necessario} registrada com sucesso\n")
+    print(f"\nDoação de R${valor_necessario} registrada com sucesso")
     print(BARRA)
 
 
 def opcao_ver_fundos_disponiveis():
-    agricultor = buscar_agricultor(id)
-    print(
-        f"\nVocê tem R${agricultor['fazenda']['valor_necessario']} disponíveis para receber\n")
-    print(BARRA)
+    for agricultor in buscar_todos_agricultores():
+        if agricultor["id"] == id:
+            print(BARRA)
+            print(
+                f"\nVocê tem R${agricultor['fazenda']['valor_necessario']} disponíveis para receber")
+            print(BARRA)
 
 
 def opcao_ver_doacoes():

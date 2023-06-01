@@ -1,1 +1,12 @@
-{"investidores": [{"id": 1, "nome_empresa": "Microsoft", "cnpj": 2, "nome_representante": "Lucas", "telefone_representante": 2314, "cep": 42}]}
+{
+  "investidores": [
+    {
+      "id": 1,
+      "nome_empresa": "Microsoft",
+      "cnpj": 2,
+      "nome_representante": "Lucas",
+      "telefone_representante": 2314,
+      "cep": 42
+    }
+  ]
+}

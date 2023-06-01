@@ -1,1 +1,46 @@
-{"agricultores": [{"id": 1, "nome": "Lucas", "cnpj": 1, "telefone": 52165, "email": "lucas@gmail", "fazenda": {"nome": "Fazenda Feliz", "area": 215, "cep": 42, "renda": 450000.0, "valor_necessario": 0}}]}
+{
+  "agricultores": [
+    {
+      "id": 1,
+      "nome": "Lucas",
+      "cnpj": 1,
+      "telefone": 52165,
+      "email": "lucas@gmail",
+      "fazenda": {
+        "nome": "Fazenda Feliz",
+        "area": 215,
+        "cep": 42,
+        "renda": 450000.0,
+        "valor_necessario": 0
+      }
+    },
+    {
+      "id": 2,
+      "nome": "Ana",
+      "cnpj": 3,
+      "telefone": 452189541,
+      "email": "ana@gmail.com",
+      "fazenda": {
+        "nome": "Fazendaaaa",
+        "area": 5421,
+        "cep": 42,
+        "renda": 450000.0,
+        "valor_necessario": 50000.0
+      }
+    },
+    {
+      "id": 3,
+      "nome": "Sarah",
+      "cnpj": 4,
+      "telefone": 4214,
+      "email": "sarah@gmail",
+      "fazenda": {
+        "nome": "Sarah",
+        "area": 321,
+        "cep": 42,
+        "renda": 450000.0,
+        "valor_necessario": 50000.0
+      }
+    }
+  ]
+}
