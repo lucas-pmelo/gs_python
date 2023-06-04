@@ -173,14 +173,17 @@ def opcao_ver_fundos_disponiveis():
 def opcao_ver_doacoes():
     doacoes = buscar_todas_doacoes()
     print(BARRA)
+    encontrada = False
     for doacao in doacoes:
         if doacao["id_investidor"] == id:
-            agricultor = buscar_agricultor_id(doacao["id_investidor"])
+            agricultor = buscar_agricultor_id(doacao["id"])
             print(f"\nNome do agricultor: {agricultor['nome']}")
             print(f"Valor doado: {doacao['valor']}")
             print(f"Nota fiscal: {doacao['nota_fiscal']}")
             print(BARRA)
-    else:
+            encontrada = True
+
+    if not encontrada:
         print("\nVocê não fez nenhuma doação")
         print(BARRA)
 
