@@ -5,21 +5,21 @@ from db import *
 
 def cadastrar_agricultor(fazenda: Fazenda) -> Agricultor:
     nome = input("Digite o nome do agricultor: ")
-    cnpj = get_int("Digite o CNPJ do agricultor: ")
-    # cnpj = None
+    # cnpj = get_int("Digite o CNPJ do agricultor: ")
+    cnpj = None
 
-    # while True:
-    #     cnpj = get_int("Digite o CNPJ do agricultor: ")
+    while True:
+        cnpj = get_int("Digite o CNPJ do agricultor: ")
 
-    #     if cnpj_existente(cnpj, buscar_todos_agricultores()):
-    #         print("\nCNPJ já cadastrado\n")
-    #         continue
+        if cnpj_existente(cnpj, buscar_todos_agricultores()):
+            print("\nCNPJ já cadastrado\n")
+            continue
 
-    #     if not validar_cnpj(cnpj):
-    #         print("\nCNPJ inválido, por favor digite um cnpj de 14 digitos\n")
-    #         continue
+        if not validar_cnpj(cnpj):
+            print("\nCNPJ inválido, por favor digite um cnpj de 14 digitos\n")
+            continue
 
-    #     break
+        break
 
     telefone = get_int("Digite o telefone do agricultor: ")
     email = input("Digite o email do agricultor: ")
@@ -56,21 +56,21 @@ def cadastrar_fazenda() -> Fazenda:
 
 def cadastrar_investidor() -> Investidor:
     nome_empresa = input("Digite o nome da empresa do investidor: ")
-    cnpj = get_int("Digite o CNPJ do investidor: ")
-    # cnpj = None
+    # cnpj = get_int("Digite o CNPJ do investidor: ")
+    cnpj = None
 
-    # while True:
-    #     cnpj = get_int("Digite o CNPJ do investidor: ")
+    while True:
+        cnpj = get_int("Digite o CNPJ do investidor: ")
 
-    #     if cnpj_existente(cnpj, buscar_todos_investidores()):
-    #         print("\nCNPJ já cadastrado\n")
-    #         continue
+        if cnpj_existente(cnpj, buscar_todos_investidores()):
+            print("\nCNPJ já cadastrado\n")
+            continue
 
-    #     if not validar_cnpj(cnpj):
-    #         print("\nCNPJ inválido, por favor digite um cnpj de 14 digitos\n")
-    #         continue
+        if not validar_cnpj(cnpj):
+            print("\nCNPJ inválido, por favor digite um cnpj de 14 digitos\n")
+            continue
 
-    #     break
+        break
 
     nome_representante = input(
         "Digite o nome do representante do investidor: ")

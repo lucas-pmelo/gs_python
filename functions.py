@@ -5,7 +5,7 @@ BARRA = "\n--------------------------------------------------"
 
 def sair():
     print(BARRA)
-    print("\nObrigado por usar o Projeto Global Solution")
+    print("\nObrigado por usar o Projeto Agrowth")
     print(BARRA)
     exit()
 

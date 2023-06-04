@@ -19,8 +19,6 @@ def inicializar():
             arquivo.write(json.dumps(conteudo))
         arquivo.close()
 
-# NÃO REPETIR TANTO CÓDIGO
-
 
 def escrever_agricultor(agricultor: Agricultor) -> None:
     arquivo_agricultor = open(NOMES_ARQUIVOS[0], "r")
@@ -97,6 +95,15 @@ def buscar_agricultor(cnpj: int) -> Agricultor:
 
     for agricultor in conteudo["agricultores"]:
         if agricultor["cnpj"] == cnpj:
+            return agricultor
+
+
+def buscar_agricultor_id(id: int) -> Agricultor:
+    arquivo_agricultor = open(NOMES_ARQUIVOS[0], "r")
+    conteudo = json.load(arquivo_agricultor)
+
+    for agricultor in conteudo["agricultores"]:
+        if agricultor["id"] == id:
             return agricultor
 
 

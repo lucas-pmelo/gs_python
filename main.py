@@ -147,7 +147,7 @@ def opcao_cadastrar_doacao():
 
     print(BARRA)
     id_agricultor = get_int("Digite o ID do agricultor que deseja doar: ")
-    valor_necessario = buscar_agricultor(
+    valor_necessario = buscar_agricultor_id(
         id_agricultor)["fazenda"]["valor_necessario"]
     nota_fiscal = random.randint(100000, 999999)
 
@@ -175,14 +175,17 @@ def opcao_ver_doacoes():
     print(BARRA)
     for doacao in doacoes:
         if doacao["id_investidor"] == id:
-            agricultor = buscar_agricultor(doacao["id_investidor"])
+            agricultor = buscar_agricultor_id(doacao["id_investidor"])
             print(f"\nNome do agricultor: {agricultor['nome']}")
             print(f"Valor doado: {doacao['valor']}")
             print(f"Nota fiscal: {doacao['nota_fiscal']}")
             print(BARRA)
+    else:
+        print("\nVocê não fez nenhuma doação")
+        print(BARRA)
 
 
 print(BARRA)
-print("\nBem vindo ao Projeto Global Solution!!")
+print("\nBem vindo ao Projeto Agrowth!!")
 print(BARRA)
 main()

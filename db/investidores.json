@@ -3,10 +3,10 @@
     {
       "id": 1,
       "nome_empresa": "Microsoft",
-      "cnpj": 2,
-      "nome_representante": "Lucas",
-      "telefone_representante": 2314,
-      "cep": 42
+      "cnpj": 98765432123456,
+      "nome_representante": "Marcos",
+      "telefone_representante": 982341225,
+      "cep": 4258244
     }
   ]
 }

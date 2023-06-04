@@ -1,6 +1,1 @@
-{
-  "doacoes": [
-    { "id": 1, "id_investidor": 1, "valor": 50000.0, "nota_fiscal": 398099 },
-    { "id": 2, "id_investidor": 1, "valor": 50000.0, "nota_fiscal": 644891 }
-  ]
-}
+{ "doacoes": [] }
